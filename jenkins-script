@@ -1,0 +1,24 @@
+pipeline {
+  agent any
+  parameters {
+    string(name:VERSION, default:"1.0.0", description:"Choose the version")
+  }
+  stages {
+    stage("BUILD") {
+      steps {
+        sh 'echo "version: ${param.VERSION}"'
+        sh 'echo "running BUILD stage"'
+      }
+    }
+    stage("DEPLOY") {
+      steps {
+        echo "running DEPLOY"
+      }
+    }
+    stage("TEST") {
+      steps {
+        echo "running TEST"
+      }
+    } 
+  }
+}
